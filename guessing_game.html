@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	
+	var answer = parseInt(Math.random() * 100); //записать в переменную var случайное число, *100 - для того, чтобы число было от 0 до 100, parseInt - чтобы отбросить дробную часть!
+
+	//document.write(answer);
+	var userAnswer = +prompt("Угадайте число от 0 до 100")
+	var maxTryCount = 3
+
+	for(var tryCount = 1; tryCount < maxTryCount; tryCount++) {
+
+		if (answer == userAnswer){
+		alert("Поздравляем, верно!")
+		break;
+		// continue - если нужно переходить к селдующей итерации.
+		} else if (userAnswer > answer){
+			alert("Число слишком большое")
+		}
+		else if (userAnswer < answer) {
+			alert ("Число слишком маленькое")
+		}
+
+		userAnswer = +prompt ("Попробуйте ещё раз. Введите чисто от 1 до 100\n У вас осталось " + (maxTryCount - tryCount) + " попыток");
+	}
+
+	if (tryCount == maxTryCount)
+		alert("Вы проиграли!")
+
+	alert("Правильный ответ " + answer);
+
+</script>
