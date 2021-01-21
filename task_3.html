@@ -1,0 +1,63 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+/*
+
+3. Дописать игру “Угадай число” (по желанию).
+Сделать игру с двумя игроками и бесконечным числом попыток. Сделайте возможность выйти из игры по желанию одного из игроков.
+
+*/
+	
+var answer = parseInt(Math.random() * 100); //записать в переменную var случайное число, *100 - для того, чтобы число было от 0 до 100, parseInt - чтобы отбросить дробную часть!
+
+//document.write(answer);
+var user1Answer = +prompt("Первый игрок, угадайте число от 0 до 100")
+var user2Answer = +prompt("Второй игрок, угадайте число от 0 до 100")
+var maxTryCount = 4
+
+
+for (var i = 1; i <= 2; i++) {
+	
+
+	for(var tryCount = 1; tryCount < maxTryCount; tryCount++) {
+
+		if (answer == user1Answer){
+		alert("Поздравляем 1 игрок, Вы выиграли!")
+		break;
+		// continue - если нужно переходить к селдующей итерации.
+
+		} else if (user1Answer > answer){
+			user1Answer = +prompt("Ход 1 игрока, нужно ввести число меньше (от 1 до 100)")
+
+		}
+
+		else if (user1Answer < answer) {
+			user1Answer = +prompt("Ход 1 игрока, нужно ввести число больше (от 1 до 100)")
+		}	
+		
+	}
+
+
+	// -------------------------------------------------------------------------
+
+
+	for(var tryCount = 1; tryCount < maxTryCount; tryCount++) {
+
+		if (answer == user2Answer){
+		alert("Поздравляем 2 игрок, Вы выиграли!")
+		break;
+		// continue - если нужно переходить к селдующей итерации.
+		} else if (user2Answer > answer){
+			user2Answer = +prompt(" Ход 2 игрока, нужно ввести число меньше")
+		}
+		else if (user2Answer < answer) {
+			user2Answer = +prompt("Ход 2 игрока, нужно ввести число больше")
+		}
+
+	}
+
+}
+	alert("Правильный ответ " + answer);
+
+
+</script>
